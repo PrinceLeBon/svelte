@@ -4,7 +4,6 @@ import { json } from '@sveltejs/kit';
 export async function PUT({ request }) {
   try {
     const { id, title, description, completed } = await request.json();
-    //console.log (await request.json());
     await db.promise().query('UPDATE tasks SET title = ?, description = ?, completed = ? WHERE id = ?', [title, description, completed ? 1 : 0, id]);
     const [task] = await db.promise().query('SELECT * FROM tasks WHERE id = ?', [id]);
     return json(task);
