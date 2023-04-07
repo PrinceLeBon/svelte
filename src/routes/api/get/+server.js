@@ -4,7 +4,7 @@ import { json } from '@sveltejs/kit';
 
 export async function GET() {
   try {
-    const [rows] = await db.promise().query('SELECT * FROM tasks');
+    const [rows] = await db.promise().query('SELECT * FROM tasks ORDER BY id DESC');
     return json(rows);
   } catch (error) {
     return {
