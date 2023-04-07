@@ -1,5 +1,7 @@
 <script>
 	import { onMount, onDestroy } from 'svelte';
+	import toastr from 'toastr';
+
 	import {
 		getTasks,
 		addTask,
@@ -15,6 +17,10 @@
 		tasks = await getTasks();
 	};
 
+	toastr.options.closeButton = true;
+	toastr.options.closeDuration = 300;
+	toastr.options.progressBar = true;
+	
 	onMount(loadTasks);
 	onDestroy(() => {
 		// Annule toutes les requêtes en cours lors de la destruction du composant
@@ -38,6 +44,8 @@
 		if (title.trim() && description.trim()) {
 			const newTask = { title, description };
 			await handleAddTask(newTask);
+
+			toastr.success("Tâche ajoutée avec succès")
 		}
 	};
 
@@ -45,11 +53,15 @@
 		const index = tasks.findIndex((task) => task.id === updatedTask.id);
 		tasks[index] = updatedTask;
 		await updateTask(updatedTask);
+		
+		toastr.info("Tâche modifiée avec succès")
 	};
 
 	const handleDeleteTask = async (deletedTask) => {
 		await deleteTask(deletedTask);
 		tasks = tasks.filter((task) => task.id !== deletedTask.id);
+		
+		toastr.error("Tâche supprimée avec succès")
 	};
 </script>
 
