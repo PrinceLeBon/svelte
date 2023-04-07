@@ -5,7 +5,7 @@
 		addTask,
 		updateTask,
 		deleteTask
-	} from '/home/phantom/Documents/Ajax/app/src/routes/api/tasks';
+	} from '/src/routes/api/tasks';
 
 	let tasks = [];
 	let title = '';
