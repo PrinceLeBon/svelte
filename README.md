@@ -4,11 +4,12 @@ A small project too make crud with [svelte.js](https://svelte.dev/) and [svelteK
 
 ## Installation
 
-1. Make sure you have npm installed on your computer.
+1. Make sure you have npm and database (mysql) installed on your computer.
 2. Download or clone this repository to your computer.
 3. Open the project in your favorite code editor.
 4. Run the command `npm install` in the terminal to install the dependencies.
-5. Run the `npm run dev -- --open` command in the terminal to run the application.
+5. Go to src/databse to get my database file and setup your database.
+6. Run the `npm run dev -- --open` command in the terminal to run the application.
 
 ## Usage
 
