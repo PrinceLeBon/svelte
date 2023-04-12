@@ -1,4 +1,3 @@
-
 export async function getTasks() {
   const response = await fetch('/api/get');
   const tasks = await response.json();
